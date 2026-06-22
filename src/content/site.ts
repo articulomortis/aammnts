@@ -27,7 +27,7 @@ export const landingExperience = [
   {
     id: 'yandex-go',
     company: { name: 'Yandex Go', url: companyLinks.yandexGo },
-    title: 'Product Designer → Lead Product Designer at Yandex Go, November 2022 – Present',
+    title: 'Product Designer → Lead Product Designer at Yandex Go, July 2021 – Present',
     paragraphs: [
       [
         'Yandex Go is a super app operating in Russia under the Yandex Go brand and in 30+ countries worldwide under the ',
