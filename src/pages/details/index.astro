@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { detailsHero, detailsSections, site } from '../../content/site';
+---
+
+<BaseLayout
+  title={`Yandex Go — ${site.name}`}
+  description="Longread about design work at Yandex Go."
+>
+  <main class="page-main page-main--offset text-block">
+    <article class="content-container" data-reveal-container="load">
+      <header class="details-hero">
+        <p class="details-hero__eyebrow" data-reveal-item>
+          <a class="link" href={detailsHero.companyUrl} target="_blank" rel="noopener noreferrer">
+            {detailsHero.eyebrow}
+          </a>
+        </p>
+        <h1 class="details-hero__title" data-reveal-item>
+          {detailsHero.title}
+        </h1>
+        <p class="details-hero__lead" data-reveal-item>
+          {detailsHero.lead}
+        </p>
+      </header>
+
+      {
+        detailsSections.map((section) => (
+          <section class="details-section" id={section.id}>
+            <h2 class="details-section__title" data-reveal-item>
+              {section.title}
+            </h2>
+            {section.paragraphs.map((paragraph) => (
+              <p class="details-section__paragraph" data-reveal-item>
+                {paragraph}
+              </p>
+            ))}
+          </section>
+        ))
+      }
+
+      <a class="details-back link" href="/" data-astro-prefetch data-reveal-item>
+        <span aria-hidden="true">←</span>
+        Back
+      </a>
+    </article>
+  </main>
+</BaseLayout>

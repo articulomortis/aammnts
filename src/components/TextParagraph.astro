@@ -1,0 +1,30 @@
+---
+type TextLink = { text: string; url: string };
+type ParagraphContent = string | readonly (string | TextLink)[];
+
+interface Props {
+  content: ParagraphContent;
+  class?: string;
+  [key: string]: unknown;
+}
+
+const { content, class: className = 'text', ...rest } = Astro.props;
+---
+
+<p class={className} {...rest}>
+  {
+    typeof content === 'string' ? (
+      content
+    ) : (
+      content.map((segment) =>
+        typeof segment === 'string' ? (
+          segment
+        ) : (
+          <a class="link" href={segment.url} target="_blank" rel="noopener noreferrer">
+            {segment.text}
+          </a>
+        ),
+      )
+    )
+  }
+</p>

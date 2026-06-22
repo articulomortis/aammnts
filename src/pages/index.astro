@@ -1,17 +1,89 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TextParagraph from '../components/TextParagraph.astro';
+import { landingExperience, landingHero, site } from '../content/site';
 
+function splitTitleByCompany(
+  title: string,
+  company: { name: string; url: string },
+) {
+  const index = title.indexOf(company.name);
+  if (index === -1) return null;
+
+  return {
+    before: title.slice(0, index),
+    after: title.slice(index + company.name.length),
+    company,
+  };
+}
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title={site.title}>
+  <main class="page-main page-main--offset text-block">
+    <div data-reveal-container="load">
+      <h1 class="landing-hero__title" data-reveal-item>
+        <a
+          class="link"
+          href={landingHero.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {landingHero.title}
+        </a>
+      </h1>
+    </div>
+    {
+      landingExperience.map((item, index) => {
+        const titleParts = splitTitleByCompany(item.title, item.company);
+
+        return (
+          <article
+            class="content-container"
+            data-reveal-container={index === 0 ? 'load' : 'scroll'}
+          >
+            <h2 class="experience-item__title" data-reveal-item>
+              {titleParts ? (
+                <>
+                  {titleParts.before}
+                  <a
+                    class="link"
+                    href={titleParts.company.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {titleParts.company.name}
+                  </a>
+                  {titleParts.after}
+                </>
+              ) : (
+                item.title
+              )}
+            </h2>
+
+            {item.paragraphs.map((paragraph) => (
+              <TextParagraph content={paragraph} data-reveal-item />
+            ))}
+
+            {'sections' in item &&
+              item.sections.map((section) => (
+                <div class="experience-item__section">
+                  <p class="text experience-item__section-title" data-reveal-item>
+                    {section.title}
+                  </p>
+                  {section.paragraphs.map((paragraph) => (
+                    <TextParagraph content={paragraph} data-reveal-item />
+                  ))}
+                </div>
+              ))}
+
+            {'detailsHref' in item && item.detailsHref && (
+              <a class="experience-item__cta link" href={item.detailsHref} data-astro-prefetch data-reveal-item>
+                More details →
+              </a>
+            )}
+          </article>
+        );
+      })
+    }
+  </main>
+</BaseLayout>

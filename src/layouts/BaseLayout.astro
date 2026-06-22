@@ -1,0 +1,36 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import Header from '../components/Header.astro';
+import '../styles/global.css';
+import motionClient from '../scripts/motion.client.ts?url';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Portfolio of Sasha Korotina, Lead Product Designer.' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <meta name="theme-color" content="#f2f2f2" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+    <title>{title}</title>
+    <ClientRouter />
+  </head>
+  <body>
+    <div class="page">
+      <Header />
+      <slot />
+    </div>
+    <div class="page-fade page-fade--bottom" aria-hidden="true"></div>
+    <script type="module" src={motionClient}></script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+---
+import { site } from '../content/site';
+---
+
+<header class="site-header" transition:persist="site-header" transition:animate="none">
+  <div class="page-fade page-fade--top" aria-hidden="true"></div>
+  <div class="site-header__inner">
+    <div class="site-header__identity-wrap">
+      <p class="site-header__identity">
+        {site.name}, {site.role}
+      </p>
+    </div>
+    <nav class="site-header__nav-wrap" aria-label="External links">
+      <ul class="site-header__nav">
+        <li>
+          <a class="link" href={site.links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </li>
+        <li>
+          <a class="link" href={site.links.pinterest} target="_blank" rel="noopener noreferrer">Pinterest</a>
+        </li>
+        <li>
+          <a class="link" href="#" aria-disabled="true" title="CV coming soon">CV</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
