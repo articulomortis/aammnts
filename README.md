@@ -12,8 +12,8 @@ Minimal portfolio for [aammnts.com](https://aammnts.com).
 ## Local development
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 
 Open [http://localhost:4321](http://localhost:4321).
@@ -27,11 +27,11 @@ All copy lives in `src/content/site.ts`.
 
 ## Deploy (GitHub Pages + custom domain)
 
-1. Create a new GitHub repository named `aammnts` under `articulomorti`.
+1. Create a new GitHub repository named `aammnts` under `articulomortis`.
 2. Push this project:
 
 ```bash
-git remote add origin git@github.com:articulomorti/aammnts.git
+git remote add origin git@github.com:articulomortis/aammnts.git
 git push -u origin main
 ```
 
@@ -39,7 +39,7 @@ git push -u origin main
    - Source: **GitHub Actions**
 4. Add DNS records for `aammnts.com`:
    - `A` records → GitHub Pages IPs: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - or `CNAME` `www` → `articulomorti.github.io` (if using www)
+   - or `CNAME` `www` → `articulomortis.github.io` (if using www)
 5. In Pages settings, set custom domain to `aammnts.com` and enable HTTPS.
 
 `public/CNAME` is already set to `aammnts.com`.
