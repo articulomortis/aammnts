@@ -2,7 +2,6 @@
 import { ClientRouter } from 'astro:transitions';
 import Header from '../components/Header.astro';
 import '../styles/global.css';
-import motionClient from '../scripts/motion.client.ts?url';
 
 interface Props {
   title: string;
@@ -31,6 +30,8 @@ const { title, description = 'Portfolio of Sasha Korotina, Lead Product Designer
       <slot />
     </div>
     <div class="page-fade page-fade--bottom" aria-hidden="true"></div>
-    <script type="module" src={motionClient}></script>
+    <script>
+      import '../scripts/motion.client.ts';
+    </script>
   </body>
 </html>
