@@ -88,17 +88,18 @@ export const detailsHero = {
   eyebrow: 'Yandex Go',
   companyUrl: companyLinks.yandexGo,
   title: 'Partner Services for Taxi Fleets',
-  lead: `How we moved from raw data to an active guide for fleet partners — and rebuilt the product around action, not tables.`,
+  lead: 'The main project I worked on at Yandex was Partner Services for Taxi Companies. Together with the team, we transformed the product from a collection of raw data into an active guide for fleet partners, rebuilding it around action rather than tables.',
 } as const;
 
 export const detailsSections = [
   {
     id: 'about-the-project',
-    title: 'About the Project: Partner Services for Taxi Fleets',
+    title: 'About the Project',
     paragraphs: [
       `Instead of working only directly with drivers, Yandex built a three-sided model — focused on collaboration with fleet owners. This service was designed specifically for them — to help manage drivers, finances, and vehicles. In building it, it was important for us to keep the idea of working together, providing flexibility and guidance without taking over. We understood that each partner is an entrepreneur, with their own unique way of doing business.`,
       `When I joined product the taxi market in Russia was already mature. Large fleets dominated most of the business. Our product at that time often simply responded to the needs of major clients, creating custom sections and features for them.`,
       `We discovered that the product was 90% made of tables. Tables aren't bad in themselves — they represent deep information — but if you only have tables, you leave users alone with raw data. There was no guidance, no support — just facts to interpret on their own.`,
+      `In Russia, we already knew that engagement with the service was very limited. Large fleet partners typically built API integrations and moved their operations to their own internal systems, while smaller partners exported data and managed everything in Excel. We had lost our users and could no longer support them in their daily operations.`,
       `For the international markets, we aimed to build something different from the start. We wanted to support users, help them structure their processes, offer direction while maintaining flexibility. This became our main challenge.`,
     ],
   },
@@ -106,7 +107,7 @@ export const detailsSections = [
     id: 'rebuilding-the-product',
     title: 'Rebuilding the Product: From Data Dump to Actionable Insights',
     paragraphs: [
-      `We began by questioning everything that had been built before. We matched the old solutions against what we saw on the ground when visiting fleets in Russia and Africa, and against what we envisioned for the future of the service.`,
+      `We began by questioning everything that had been built before. We matched the old solutions against what we learned from field research in Russia and Africa, and against what we envisioned for the future of the service.`,
       `The first thing we focused on was the Drivers Page — the partner's main asset. Originally, it was just an endless list of drivers: those currently working, those who had worked before, and those who hadn't yet started, all hidden behind countless filters. We made one simple but powerful change: we introduced a funnel. We showed that all drivers could be divided into three segments — new, active, and churn. This segmentation gave us a shared language with partners and made it clear that working with drivers in different segments requires different approaches.`,
       `Another fundamental shift was surfacing problems. Before, partners only reacted when drivers reached out to them. Now, they could immediately see how many drivers were blocked or facing issues. This made partners more proactive — they started calling drivers themselves and working through problems before they escalated. This change had a massive impact on SH, our key metric.`,
       `From this foundation, we kept building tools around attraction, problem detailing, and classification, but the core idea remained the same — make the invisible visible and turn data into action.`,
