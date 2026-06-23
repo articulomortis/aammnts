@@ -84,12 +84,8 @@ export const landingExperience = [
   },
 ] as const;
 
-export const detailsHero = {
-  eyebrow: 'Yandex Go',
-  companyUrl: companyLinks.yandexGo,
-  title: 'Partner Services for Taxi Fleets',
-  lead: 'The main project I worked on at Yandex was Partner Services for Taxi Companies. Together with the team, we transformed the product from a collection of raw data into an active guide for fleet partners, rebuilding it around action rather than tables.',
-} as const;
+export const detailsIntro =
+  'The main project I worked on at Yandex was Partner Services for Taxi Companies. Together with the team, we transformed the product from a collection of raw data into an active guide for fleet partners, rebuilding it around action rather than tables.' as const;
 
 export const detailsSections = [
   {
