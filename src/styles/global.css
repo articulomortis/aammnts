@@ -354,6 +354,10 @@ a {
   margin-top: var(--line-height-body);
 }
 
+.details-section__paragraph + .details-section {
+  margin-top: var(--line-height-body);
+}
+
 .details-section__title {
   margin: 0;
   font: inherit;
