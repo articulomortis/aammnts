@@ -16,9 +16,11 @@ import { detailsIntro, detailsSections, site } from '../../content/site';
       {
         detailsSections.map((section) => (
           <section class="details-section" id={section.id}>
-            <h2 class="details-section__title" data-reveal-item>
-              {section.title}
-            </h2>
+            {section.title ? (
+              <h2 class="details-section__title" data-reveal-item>
+                {section.title}
+              </h2>
+            ) : null}
             {section.paragraphs.map((paragraph) => (
               <p class="details-section__paragraph" data-reveal-item>
                 {paragraph}

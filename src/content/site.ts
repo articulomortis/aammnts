@@ -119,24 +119,10 @@ export const detailsSections = [
     ],
   },
   {
-    id: 'introducing-dashboards',
-    title: 'Speaking the Same Language: Introducing Dashboards',
+    id: 'what-we-built-next',
+    title: '',
     paragraphs: [
-      `Dashboards allowed us to move away from overwhelming tables and start having real conversations with partners — about trends, dynamics, health, and risks. We could finally talk about the state of their business in a way that was tangible and meaningful, not buried in endless lists.`,
-    ],
-  },
-  {
-    id: 'park-owned-cars',
-    title: 'Working with Park-Owned Cars: Strengthening the Ecosystem',
-    paragraphs: [
-      `The next direction we developed was working with partners who owned their vehicle fleets. These partners were often the most stable and contributed the most to SH. We built tools that helped them manage rentals, track expenses, and understand the overall economy of their park. For many partners, this was the first time they could see the financial picture of their operations clearly, all in one place.`,
-    ],
-  },
-  {
-    id: 'home-page',
-    title: 'The Home Page: Building a Bigger Narrative',
-    paragraphs: [
-      `Finally, we created the Home Page — the main entry point into the service. Our goal was to move away from the language of raw data and start speaking about business health, opportunities, and risks in a unified way. The Home Page surfaced the most important aspects: financial analytics, key metrics around drivers and cars, and a unified view of issues and opportunities. It didn't just highlight problems — it suggested actions to take. It adapted based on the user's role and the type of park they managed. For the first time, we had a space that allowed us to talk to partners at a higher, strategic level, not just through isolated pieces of data. The Home Page continues to evolve today, but that first step changed the relationship between the product and its users fundamentally.`,
+      `The same principles shaped everything we built afterwards. Dashboards helped partners understand the health of their business instead of navigating endless tables. We introduced dedicated tools for park-owned vehicles, giving partners visibility into rentals, expenses, and profitability. Finally, the Home Page brought everything together into a single strategic view of the business, highlighting opportunities, risks, and the next actions to take.`,
     ],
   },
   {
