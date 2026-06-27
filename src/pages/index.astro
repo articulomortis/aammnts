@@ -22,14 +22,7 @@ function splitTitleByCompany(
   <main class="page-main page-main--offset text-block">
     <div data-reveal-container="load">
       <h1 class="landing-hero__title" data-reveal-item>
-        <a
-          class="link"
-          href={landingHero.url}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {landingHero.title}
-        </a>
+        <a class="link" href={landingHero.url} target="_blank" rel="noopener noreferrer">{landingHero.title}</a>
       </h1>
     </div>
     {
@@ -44,16 +37,7 @@ function splitTitleByCompany(
             <h2 class="experience-item__title" data-reveal-item>
               {titleParts ? (
                 <>
-                  {titleParts.before}
-                  <a
-                    class="link"
-                    href={titleParts.company.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {titleParts.company.name}
-                  </a>
-                  {titleParts.after}
+                  {titleParts.before}<a class="link" href={titleParts.company.url} target="_blank" rel="noopener noreferrer">{titleParts.company.name.trim()}</a>{titleParts.after}
                 </>
               ) : (
                 item.title

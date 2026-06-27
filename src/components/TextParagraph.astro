@@ -20,9 +20,7 @@ const { content, class: className = 'text', ...rest } = Astro.props;
         typeof segment === 'string' ? (
           segment
         ) : (
-          <a class="link" href={segment.url} target="_blank" rel="noopener noreferrer">
-            {segment.text}
-          </a>
+          <a class="link" href={segment.url} target="_blank" rel="noopener noreferrer">{segment.text.trim()}</a>
         ),
       )
     )
