@@ -84,16 +84,23 @@ export const landingExperience = [
 ] as const;
 
 export const detailsIntro =
-  'The main project I worked on at Yandex was Partner Services for Taxi Companies. Together with the team, we transformed the product from a collection of raw data into an active guide for fleet partners, rebuilding it around action rather than tables.' as const;
+  'My work at Yandex Taxi focuses on Fleet, the B2B platform for taxi fleet owners. Together with the team, we transformed Fleet from a collection of raw data into an active guide for fleet owners, rebuilding it around action rather than tables.' as const;
 
 export const detailsSections = [
+  {
+    id: 'about-fleet',
+    title: 'About Fleet',
+    paragraphs: [
+      `Yandex Taxi is built around three sides: passengers, drivers, and taxi fleet owners. Fleet is the B2B platform designed for fleet owners, helping them manage drivers, vehicles, finances, and daily operations.`,
+      `In building Fleet, it was important for us to preserve the idea of partnership. Rather than taking control of a fleet owner's business, we wanted to provide visibility, guidance, and flexibility. We understood that each partner is an entrepreneur, with their own unique way of doing business.`,
+    ],
+  },
   {
     id: 'about-the-project',
     title: 'About the Project',
     paragraphs: [
-      `Instead of working only directly with drivers, Yandex built a three-sided model — focused on collaboration with fleet owners. This service was designed specifically for them — to help manage drivers, finances, and vehicles. In building it, it was important for us to keep the idea of working together, providing flexibility and guidance without taking over. We understood that each partner is an entrepreneur, with their own unique way of doing business.`,
-      `When I joined product the taxi market in Russia was already mature. Large fleets dominated most of the business. Our product at that time often simply responded to the needs of major clients, creating custom sections and features for them.`,
-      `We discovered that the product was 90% made of tables. Tables aren't bad in themselves — they represent deep information — but if you only have tables, you leave users alone with raw data. There was no guidance, no support — just facts to interpret on their own.`,
+      `When I joined the product, the taxi market in Russia was already mature. Large fleets dominated most of the business, and over the years our product had gradually evolved around their specific requests. Instead of a coherent system, it became a collection of custom sections and features.`,
+      `As a result, almost 90% of the product consisted of tables. Tables aren't bad in themselves—they represent deep information. But when a product is built almost entirely around tables, users are left alone with raw data. There was no guidance, no support, just facts to interpret on their own.`,
       `In Russia, we already knew that engagement with the service was very limited. Large fleet partners typically built API integrations and moved their operations to their own internal systems, while smaller partners exported data and managed everything in Excel. We had lost our users and could no longer support them in their daily operations.`,
       `For the international markets, we aimed to build something different from the start. We wanted to support users, help them structure their processes, offer direction while maintaining flexibility. This became our main challenge.`,
     ],
