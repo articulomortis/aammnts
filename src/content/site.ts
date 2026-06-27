@@ -119,6 +119,17 @@ export const detailsSections = [
     ],
   },
   {
+    id: 'the-next-challenge-adoption',
+    title: 'The Next Challenge: Adoption',
+    paragraphs: [
+      `By this point, we had built a much stronger product. New workflows, dashboards, and tools were in place, and it felt like we had solved the main problems.`,
+      `Reality turned out to be more complicated.`,
+      `Many of these tools weren't adopted as actively as we had expected. This forced us to step back and rethink not only the product itself, but also how people learn, change their habits, and gradually build new ways of working.`,
+      `One of the biggest lessons for me was realizing how diverse our partners really were. Some had been running fleets for years with established processes, while others were just starting their business. Designing for everyone with the same level of complexity simply didn't work.`,
+      `Instead, we learned to introduce new functionality in its simplest form, giving partners time to adopt new behaviors before expanding into more advanced workflows. Complexity shouldn't be delivered all at once — it should grow together with the user's experience.`,
+    ],
+  },
+  {
     id: 'what-we-built-next',
     title: '',
     paragraphs: [
