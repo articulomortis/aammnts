@@ -110,7 +110,7 @@ export const detailsSections = [
     title: 'Rebuilding the Product: From Data Dump to Actionable Insights',
     paragraphs: [
       `We began by questioning everything that had been built before. We compared the old solutions with what we learned from field research in Russia and Africa, and with what we envisioned for the future of the service.`,
-      `We started with the Drivers Page. Drivers are the most important asset of any taxi fleet owners. Every partner constantly needs to attract new drivers, support active ones, and bring back those who have stopped working. Yet the product treated every driver exactly the same. The page was simply an endless table with countless filters.`,
+      `We started with the Drivers Page. Drivers are the most important asset for any taxi fleet owner. Every partner constantly needs to attract new drivers, support active ones, and bring back those who have stopped working. Yet the product treated every driver exactly the same. The page was simply an endless table with countless filters.`,
       `We made one simple but powerful change: we introduced a funnel. We showed that all drivers could be divided into three segments — new, active, and churn.`,
       `This segmentation gave us a shared language with fleet owners and made it clear that each group required different actions. For the first time, the product reflected how fleet owners actually managed their business.`,
       `Another fundamental shift was making problems visible. Before, partners usually reacted only when drivers reached out to them. We introduced clear indicators for drivers at risk of becoming blocked, as well as those who had already been blocked.`,
@@ -122,7 +122,9 @@ export const detailsSections = [
     id: 'what-we-built-next',
     title: '',
     paragraphs: [
-      `The same principles shaped everything we built afterwards. Dashboards helped partners understand the health of their business instead of navigating endless tables. We introduced dedicated tools for park-owned vehicles, giving partners visibility into rentals, expenses, and profitability. Finally, the Home Page brought everything together into a single strategic view of the business, highlighting opportunities, risks, and the next actions to take.`,
+      `The same principles shaped everything we built afterwards. We introduced a layer of aggregated insights across drivers, vehicles, and finances. Instead of navigating endless tables, partners could understand the overall health of their business at a glance. Dashboards gave us a shared language for discussing key business indicators and made it easier to focus on what actually required attention.`,
+      `We also introduced dedicated tools for partners who owned their own vehicle fleets, giving them visibility into rentals, expenses, and profitability.`,
+      `Finally, we created the Home Page, bringing everything together into a single strategic view of the business. It highlighted opportunities, risks, and the next actions to take, allowing us to speak to partners about their business as a whole rather than through isolated pieces of data.`,
     ],
   },
   {
