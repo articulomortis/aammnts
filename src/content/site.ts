@@ -25,12 +25,12 @@ export const landingHero = {
 
 export const landingExperience = [
   {
-    id: 'yandex-go',
-    company: { name: 'Yandex Go', url: companyLinks.yandexGo },
-    title: 'Product Designer → Lead Product Designer at Yandex Go, July 2021 – Present',
+    id: 'yandex-taxi',
+    company: { name: 'Yandex Taxi', url: companyLinks.yandexGo },
+    title: 'Product Designer → Lead Product Designer at Yandex Taxi, July 2021 – Present',
     paragraphs: [
       [
-        'Yandex Go is a mobility ecosystem operating in Russia under the Yandex Go brand and internationally under ',
+        'Yandex Taxi is a mobility ecosystem operating in Russia under the Yandex Go brand and internationally under ',
         { text: 'Yango', url: companyLinks.yango },
         ' in 30+ countries. It includes products for passengers, drivers, and taxi fleet owners. I work on the B2B platform for fleet owners, designing tools to manage drivers, vehicles, finances, and daily operations.',
       ],
@@ -39,7 +39,7 @@ export const landingExperience = [
       {
         title: 'Part 1. Finding My Space and Shaping Vision',
         paragraphs: [
-          `When I joined the team, there were two versions of the product: one for the Russian market and one for international users. One of our goals was to completely rethink the international version and turn it into a simplified, coherent set of tools that would support user workflows and business growth.`,
+          `When I joined the team, there were two versions of the partners' product: one for the Russian market and one for international users. One of our goals was to completely rethink the international version and turn it into a simplified, coherent set of tools that would support user workflows and business growth.`,
           `My role was to dive into the industry context, rethink the entire product and its architecture, identify the core of what mattered most, and design a clear structure of tools, from basic to advanced.`,
         ],
       },
@@ -84,15 +84,15 @@ export const landingExperience = [
 ] as const;
 
 export const detailsIntro =
-  'My work at Yandex Taxi focuses on Fleet, the B2B platform for taxi fleet owners. Together with the team, we transformed Fleet from a collection of raw data into an active guide for fleet owners, rebuilding it around action rather than tables.' as const;
+  'My work at Yandex Taxi focuses on Fleet, the B2B platform for taxi fleet owners. Together with the team, we transformed this product from a collection of raw data into an active guide for fleet owners, rebuilding it around action rather than tables.' as const;
 
 export const detailsSections = [
   {
     id: 'about-fleet',
     title: 'About Fleet',
     paragraphs: [
-      `Yandex Taxi is built around three sides: passengers, drivers, and taxi fleet owners. Fleet is the B2B platform designed for fleet owners, helping them manage drivers, vehicles, finances, and daily operations.`,
-      `In building Fleet, it was important for us to preserve the idea of partnership. Rather than taking control of a fleet owner's business, we wanted to provide visibility, guidance, and flexibility. We understood that each partner is an entrepreneur, with their own unique way of doing business.`,
+      `Yandex Taxi is built around three sides: passengers, drivers, and taxi fleet owners. For fleet owners was designed the B2B platform that helps to manage drivers, vehicles, finances, and daily operations.`,
+      `In building this product was important to preserve the idea of partnership. Rather than taking control of a fleet owner's business, we wanted to provide visibility, guidance, and flexibility. We understood that each partner is an entrepreneur, with their own unique way of doing business.`,
     ],
   },
   {
@@ -100,7 +100,7 @@ export const detailsSections = [
     title: 'About the Project',
     paragraphs: [
       `When I joined the product, the taxi market in Russia was already mature. Large fleets dominated most of the business, and over the years our product had gradually evolved around their specific requests. Instead of a coherent system, it became a collection of custom sections and features.`,
-      `As a result, almost 90% of the product consisted of tables. Tables aren't bad in themselves—they represent deep information. But when a product is built almost entirely around tables, users are left alone with raw data. There was no guidance, no support, just facts to interpret on their own.`,
+      `As a result, almost 90% of the product consisted of tables. Tables aren't bad in themselves — they represent deep information. But when a product is built almost entirely around tables, users are left alone with raw data. There was no guidance, no support, just facts to interpret on their own.`,
       `In Russia, we already knew that engagement with the service was very limited. Large fleet partners typically built API integrations and moved their operations to their own internal systems, while smaller partners exported data and managed everything in Excel. We had lost our users and could no longer support them in their daily operations.`,
       `For the international markets, we aimed to build something different from the start. We wanted to support users, help them structure their processes, offer direction while maintaining flexibility. This became our main challenge.`,
     ],
