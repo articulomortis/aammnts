@@ -113,6 +113,9 @@ export const detailsSections = [
       `We started with the Drivers Page. Drivers are the most important asset of any taxi fleet owners. Every partner constantly needs to attract new drivers, support active ones, and bring back those who have stopped working. Yet the product treated every driver exactly the same. The page was simply an endless table with countless filters.`,
       `We made one simple but powerful change: we introduced a funnel. We showed that all drivers could be divided into three segments — new, active, and churn.`,
       `This segmentation gave us a shared language with fleet owners and made it clear that each group required different actions. For the first time, the product reflected how fleet owners actually managed their business.`,
+      `Another fundamental shift was making problems visible. Before, partners usually reacted only when drivers reached out to them. We introduced clear indicators for drivers at risk of becoming blocked, as well as those who had already been blocked.`,
+      `Instead of waiting for drivers to ask for help, partners became proactive. They started reaching out first, resolving issues before drivers stopped working, or helping blocked drivers return to work faster. This change had a direct impact on one of our key business metrics — supply hours.`,
+      `From this foundation, we continued building tools around driver attraction, problem investigation, and classification, but the core idea remained the same — make the invisible visible and turn data into action.`,
     ],
   },
   {
