@@ -107,23 +107,24 @@ a {
 }
 
 .link {
-  color: var(--color-text);
+  color: var(--color-link);
   text-decoration: none;
   transition: color var(--duration-fast) var(--ease-out-expo);
 }
 
 .link:hover {
-  color: var(--color-link);
+  color: color-mix(in srgb, var(--color-link) 80%, var(--color-text));
 }
 
 .link[aria-disabled='true'] {
+  color: var(--color-text-secondary);
   opacity: 0.35;
   pointer-events: none;
   cursor: default;
 }
 
 .link[aria-disabled='true']:hover {
-  color: var(--color-text);
+  color: var(--color-text-secondary);
 }
 
 ::selection {
