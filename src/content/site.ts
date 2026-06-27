@@ -91,8 +91,8 @@ export const detailsSections = [
     id: 'about-fleet',
     title: 'About Fleet',
     paragraphs: [
-      `Yandex Taxi is built around three sides: passengers, drivers, and taxi fleet owners. For fleet owners was designed the B2B platform that helps to manage drivers, vehicles, finances, and daily operations.`,
-      `In building this product was important to preserve the idea of partnership. Rather than taking control of a fleet owner's business, we wanted to provide visibility, guidance, and flexibility. We understood that each partner is an entrepreneur, with their own unique way of doing business.`,
+      `Yandex Taxi is built around three sides: passengers, drivers, and taxi fleet owners. Fleet is the B2B platform designed for taxi fleet owners to manage drivers, vehicles, finances, and daily operations.`,
+      `One of our key principles was preserving the idea of partnership. Rather than taking control of a fleet owner's business, we wanted to provide visibility, guidance, and flexibility. We understood that each partner is an entrepreneur, with their own unique way of doing business.`,
     ],
   },
   {
