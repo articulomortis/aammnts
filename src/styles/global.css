@@ -108,21 +108,14 @@ a {
 
 .link {
   color: var(--color-text);
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
   transition: color var(--duration-fast) var(--ease-out-expo);
 }
 
 .link:hover {
   color: var(--color-link);
-}
-
-.link[target='_blank']::after {
-  content: '↗';
-  display: inline-block;
-  margin-inline-start: 0.12em;
-  font-size: 0.85em;
-  line-height: 1;
-  vertical-align: 0.05em;
 }
 
 .link[aria-disabled='true'] {
