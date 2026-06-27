@@ -109,10 +109,10 @@ export const detailsSections = [
     id: 'rebuilding-the-product',
     title: 'Rebuilding the Product: From Data Dump to Actionable Insights',
     paragraphs: [
-      `We began by questioning everything that had been built before. We matched the old solutions against what we learned from field research in Russia and Africa, and against what we envisioned for the future of the service.`,
-      `The first thing we focused on was the Drivers Page — the partner's main asset. Originally, it was just an endless list of drivers: those currently working, those who had worked before, and those who hadn't yet started, all hidden behind countless filters. We made one simple but powerful change: we introduced a funnel. We showed that all drivers could be divided into three segments — new, active, and churn. This segmentation gave us a shared language with partners and made it clear that working with drivers in different segments requires different approaches.`,
-      `Another fundamental shift was surfacing problems. Before, partners only reacted when drivers reached out to them. Now, they could immediately see how many drivers were blocked or facing issues. This made partners more proactive — they started calling drivers themselves and working through problems before they escalated. This change had a massive impact on SH, our key metric.`,
-      `From this foundation, we kept building tools around attraction, problem detailing, and classification, but the core idea remained the same — make the invisible visible and turn data into action.`,
+      `We began by questioning everything that had been built before. We compared the old solutions with what we learned from field research in Russia and Africa, and with what we envisioned for the future of the service.`,
+      `We started with the Drivers Page. Drivers are the most important asset of any taxi fleet owners. Every partner constantly needs to attract new drivers, support active ones, and bring back those who have stopped working. Yet the product treated every driver exactly the same. The page was simply an endless table with countless filters.`,
+      `We made one simple but powerful change: we introduced a funnel. We showed that all drivers could be divided into three segments — new, active, and churn.`,
+      `This segmentation gave us a shared language with fleet owners and made it clear that each group required different actions. For the first time, the product reflected how fleet owners actually managed their business.`,
     ],
   },
   {
