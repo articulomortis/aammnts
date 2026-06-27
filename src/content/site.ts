@@ -30,9 +30,9 @@ export const landingExperience = [
     title: 'Product Designer → Lead Product Designer at Yandex Go, July 2021 – Present',
     paragraphs: [
       [
-        'Yandex Go is a super app operating in Russia under the Yandex Go brand and in 30+ countries worldwide under the ',
+        'Yandex Go is a mobility ecosystem operating in Russia under the Yandex Go brand and internationally under ',
         { text: 'Yango', url: companyLinks.yango },
-        ' brand. It brings together services for users, drivers, and businesses, spanning B2C, B2B, and partner ecosystems.',
+        ' in 30+ countries. It includes products for passengers, drivers, and taxi fleet owners. I work on the B2B platform for fleet owners, designing tools to manage drivers, vehicles, finances, and daily operations.',
       ],
     ],
     sections: [
@@ -47,14 +47,14 @@ export const landingExperience = [
       {
         title: 'Part 2. Scaling Influence and Leading a Team',
         paragraphs: [
-          `As our initial redesigns proved successful and impactful, the team began to grow. I moved into a leadership role, building and managing a team of four designers while continuing to design for the product myself.`,
-          `Through this phase, I expanded my influence from shaping features to shaping how we work, think, and build as a design team.`,
+          `As the product grew, the team grew with it. I moved into a leadership role, building and managing a team of four designers while continuing to design for the product myself.`,
+          `Over time, my role expanded beyond product design. I became responsible not only for shaping the product, but also for shaping how our design team worked, made decisions, and collaborated across disciplines.`,
         ],
       },
       {
         title: 'Building a Sustainable Foundation: The Design System',
         paragraphs: [
-          `Alongside this, I initiated and developed a foundational design library with a small engineering team. This system now powers multiple projects across different business units, an experience that taught me how to design sustainable solutions that outlive their creators.`,
+          `Parallel to this, we developed a foundational design library with a small engineering team. This system now powers multiple projects across different business units — an experience that taught me how to design sustainable solutions that outlive their creators.`,
         ],
       },
     ],
