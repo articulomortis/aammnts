@@ -102,13 +102,13 @@ img {
 
 a {
   color: inherit;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.18em;
+  text-decoration: none;
 }
 
 .link {
   color: var(--color-text);
-  text-decoration: underline;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.18em;
   transition: color var(--duration-fast) var(--ease-out-expo);
@@ -290,7 +290,7 @@ a {
 }
 
 .site-header__nav a {
-  text-decoration: none;
+  text-decoration-line: none;
 }
 
 .text {
@@ -327,7 +327,7 @@ a {
 .experience-item__cta {
   display: inline-block;
   margin-top: var(--line-height-body);
-  text-decoration: none;
+  text-decoration-line: none;
 }
 
 .details-hero {
