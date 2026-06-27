@@ -40,7 +40,7 @@ export const landingExperience = [
         title: 'Part 1. Finding My Space and Shaping Vision',
         paragraphs: [
           `When I joined the team, there were two versions of the product: one for the Russian market and one for international users. One of our goals was to completely rethink the international version and turn it into a simplified, coherent set of tools that would support user workflows and business growth.`,
-          `My role was to dive into the industry context, rethink the entire product and its architecture, identify the core of what mattered most, and design a clear structure of tools, from basic to advanced. I also worked closely with the development team to align on how we would review and rebuild everything step by step, making sure we used our resources effectively.`,
+          `My role was to dive into the industry context, rethink the entire product and its architecture, identify the core of what mattered most, and design a clear structure of tools, from basic to advanced.`,
         ],
       },
       {
