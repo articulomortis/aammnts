@@ -28,6 +28,8 @@ function revealOnLoad(container: Element) {
 }
 
 function revealOnScroll(container: Element) {
+  if (container.closest('[data-showcase]')) return;
+
   const items = container.querySelectorAll<HTMLElement>('[data-reveal-item]');
   if (!items.length) return;
 
@@ -66,7 +68,9 @@ export function initMotion() {
     gsap.ticker.lagSmoothing(0);
   }
 
-  const revealItems = gsap.utils.toArray<HTMLElement>('[data-reveal-item]');
+  const revealItems = gsap.utils.toArray<HTMLElement>('[data-reveal-item]').filter(
+    (item) => !item.closest('[data-showcase]'),
+  );
 
   if (reducedMotion) {
     gsap.set(revealItems, REVEAL_TO);

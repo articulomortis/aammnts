@@ -1,0 +1,20 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  reveal?: 'load' | 'scroll';
+}
+
+const { src, alt, reveal = 'scroll' } = Astro.props;
+---
+
+<div class="content-container details-calendar" data-reveal-container={reveal}>
+  <img
+    class="details-calendar__icon"
+    src={src}
+    width="80"
+    height="80"
+    alt={alt}
+    data-reveal-item
+  />
+</div>

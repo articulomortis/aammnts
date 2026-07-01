@@ -1,21 +1,46 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { detailsIntro, detailsSections, site } from '../../content/site';
+import DetailsCalendar from '../../components/DetailsCalendar.astro';
+import DetailsShowcase from '../../components/DetailsShowcase.astro';
+import { detailsCalendars, detailsIntro, detailsSections, detailsShowcases, site } from '../../content/site';
+
+function getCalendarAfter(after: string) {
+  return detailsCalendars.find((calendar) => calendar.after === after);
+}
+
+function getShowcaseAfter(after: string) {
+  return detailsShowcases.find((showcase) => showcase.after === after);
+}
 ---
 
 <BaseLayout
   title={`Yandex Go — ${site.name}`}
   description="Longread about design work at Yandex Go."
 >
-  <main class="page-main page-main--offset text-block">
+  <main class="page-main page-main--offset page-main--details text-block">
     <article class="content-container" data-reveal-container="load">
       <p class="details-section__paragraph" data-reveal-item>
         {detailsIntro}
       </p>
+    </article>
 
-      {
-        detailsSections.map((section) => (
-          <section class="details-section" id={section.id}>
+    {
+      (() => {
+        const calendar = getCalendarAfter('intro');
+        return calendar ? (
+          <DetailsCalendar src={calendar.src} alt={calendar.alt} reveal={calendar.reveal} />
+        ) : null;
+      })()
+    }
+
+    {
+      detailsSections.map((section, index) => (
+        <>
+          <article
+            class="content-container"
+            id={section.id}
+            data-reveal-container={index === 0 ? 'load' : 'scroll'}
+          >
             {section.title ? (
               <h2 class="details-section__title" data-reveal-item>
                 {section.title}
@@ -26,14 +51,37 @@ import { detailsIntro, detailsSections, site } from '../../content/site';
                 {paragraph}
               </p>
             ))}
-          </section>
-        ))
-      }
 
-      <a class="details-back link" href="/" data-astro-prefetch data-reveal-item>
-        <span aria-hidden="true">←</span>
-        Back
-      </a>
-    </article>
+            {index === detailsSections.length - 1 && (
+              <a class="details-back link" href="/" data-astro-prefetch data-reveal-item>
+                <span aria-hidden="true">←</span>
+                Back
+              </a>
+            )}
+          </article>
+
+          {
+            (() => {
+              const showcase = getShowcaseAfter(section.id);
+              return showcase ? (
+                <DetailsShowcase
+                  images={showcase.images}
+                  initialOrder={showcase.initialOrder}
+                />
+              ) : null;
+            })()
+          }
+
+          {
+            (() => {
+              const calendar = getCalendarAfter(section.id);
+              return calendar ? (
+                <DetailsCalendar src={calendar.src} alt={calendar.alt} reveal={calendar.reveal} />
+              ) : null;
+            })()
+          }
+        </>
+      ))
+    }
   </main>
 </BaseLayout>

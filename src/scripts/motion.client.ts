@@ -1,4 +1,5 @@
 import { initMotion, destroyMotion } from '../scripts/motion';
+import { initShowcases } from '../scripts/showcase';
 
 let cleanup: (() => void) | undefined;
 
@@ -21,7 +22,12 @@ function resetHeaderLayout() {
 function boot() {
   cleanup?.();
   resetHeaderLayout();
-  cleanup = initMotion();
+  const motionCleanup = initMotion();
+  const showcaseCleanup = initShowcases();
+  cleanup = () => {
+    motionCleanup?.();
+    showcaseCleanup();
+  };
 }
 
 boot();

@@ -86,6 +86,23 @@ export const landingExperience = [
 export const detailsIntro =
   'My work at Yandex Taxi focuses on Fleet, the B2B platform for taxi fleet owners. Together with the team, we transformed this product from a collection of raw data into an active guide for fleet owners, rebuilding it around action rather than tables.' as const;
 
+export const detailsCalendars = [
+  { after: 'intro', src: '/calendar-2022.svg', alt: '2022', reveal: 'load' },
+  { after: 'rebuilding-the-product', src: '/calendar-2021.svg', alt: '2021', reveal: 'scroll' },
+] as const;
+
+export const detailsShowcases = [
+  {
+    after: 'about-the-project',
+    initialOrder: [1, 2, 0],
+    images: [
+      { src: '/showcase/vehicles.png', alt: 'Vehicles dashboard' },
+      { src: '/showcase/transaction-report.png', alt: 'Transaction report' },
+      { src: '/showcase/vehicles-expenses.png', alt: 'Vehicles expenses' },
+    ],
+  },
+] as const;
+
 export const detailsSections = [
   {
     id: 'about-fleet',

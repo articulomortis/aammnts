@@ -1,0 +1,29 @@
+---
+interface ShowcaseImage {
+  src: string;
+  alt: string;
+}
+
+interface Props {
+  images: readonly ShowcaseImage[];
+  initialOrder?: readonly number[];
+}
+
+const { images, initialOrder } = Astro.props;
+---
+
+<div class="content-container details-showcase" data-showcase data-showcase-order={initialOrder?.join(',')}>
+  <div class="details-showcase__stage">
+    {
+      images.map((image, index) => (
+        <button
+          type="button"
+          class="details-showcase__card"
+          data-showcase-card={index}
+        >
+          <img src={image.src} alt={image.alt} width="1576" height="900" decoding="async" />
+        </button>
+      ))
+    }
+  </div>
+</div>
