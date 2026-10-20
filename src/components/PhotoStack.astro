@@ -1,0 +1,35 @@
+---
+interface Photo {
+  src: string;
+  alt: string;
+  orientation?: 'portrait' | 'landscape';
+}
+
+interface Props {
+  photos: Photo[];
+  caption?: string;
+}
+
+const { photos, caption } = Astro.props;
+---
+
+<figure class="photo-stack" data-reveal-item>
+  <button
+    type="button"
+    class="photo-stack__stage"
+    data-photo-stack
+    aria-label="Click to see the next photo"
+  >
+    {photos.map((photo, index) => (
+      <img
+        class="photo-stack__photo"
+        data-stack-index={index}
+        data-orientation={photo.orientation ?? 'portrait'}
+        src={photo.src}
+        alt={photo.alt}
+        loading="lazy"
+      />
+    ))}
+  </button>
+  {caption && <figcaption class="photo-stack__caption">{caption}</figcaption>}
+</figure>

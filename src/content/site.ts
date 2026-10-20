@@ -8,8 +8,8 @@ export const companyLinks = {
 
 export const site = {
   name: 'Sasha Korotina',
-  role: 'Lead Product Designer',
-  title: 'Sasha Korotina — Lead Product Designer',
+  role: 'Product Designer',
+  title: 'Sasha Korotina — Product Designer',
   domain: 'https://aammnts.com',
   links: {
     linkedin: 'https://www.linkedin.com/in/sashakorotina/',
@@ -27,7 +27,7 @@ export const landingExperience = [
   {
     id: 'yandex-taxi',
     company: { name: 'Yandex Taxi', url: companyLinks.yandexGo },
-    title: 'Product Designer → Lead Product Designer at Yandex Taxi, July 2021 – Present',
+    title: 'Product Designer at Yandex Taxi, July 2021 – Present',
     paragraphs: [
       [
         'Yandex Taxi is a mobility ecosystem operating in Russia under the Yandex Go brand and internationally under ',
@@ -109,7 +109,7 @@ export const detailsSections = [
     id: 'rebuilding-the-product',
     title: 'Rebuilding the Product: From Data Dump to Actionable Insights',
     paragraphs: [
-      `We began by questioning everything that had been built before. We compared the old solutions with what we learned from field research in Russia and Africa, and with what we envisioned for the future of the service.`,
+      `We began by questioning everything that had been built before. We compared the old solutions with what we learned from field research in Russia, Angola, Namibia and Zambia, and with what we envisioned for the future of the service.`,
       `We started with the Drivers Page. Drivers are the most important asset for any taxi fleet owner. Every partner constantly needs to attract new drivers, support active ones, and bring back those who have stopped working. Yet the product treated every driver exactly the same. The page was simply an endless table with countless filters.`,
       `We made one simple but powerful change: we introduced a funnel. We showed that all drivers could be divided into three segments — new, active, and churn.`,
       `This segmentation gave us a shared language with fleet owners and made it clear that each group required different actions. For the first time, the product reflected how fleet owners actually managed their business.`,

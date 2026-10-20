@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import InlineImage from '../../components/InlineImage.astro';
+import PhotoStack from '../../components/PhotoStack.astro';
 import { detailsIntro, detailsSections, site } from '../../content/site';
 ---
 
@@ -29,7 +30,6 @@ import { detailsIntro, detailsSections, site } from '../../content/site';
                 </p>
                 {section.id === 'about-the-project' && paragraphIndex === 0 && (
                   <InlineImage
-                    class="inline-image--pad-right"
                     src="/images/details/fleet-product-map.svg"
                     alt="Fleet product map: navigation tree with Home, Drivers, Vehicles, Reports, Map, Products and services, Information, Settings"
                     caption="Fleet product map, 2019. Each branch had grown almost independently over time"
@@ -41,6 +41,27 @@ import { detailsIntro, detailsSections, site } from '../../content/site';
                     src="/images/details/raw-tables.svg"
                     alt="Raw table view representing the product's single layer of interpretation"
                     caption="The product offered only one layer of interpretation — raw tables"
+                  />
+                )}
+                {section.id === 'rebuilding-the-product' && paragraphIndex === 2 && (
+                  <InlineImage
+                    src="/images/details/driver-lifecycle.svg"
+                    alt="Driver lifecycle diagram: Candidate, Active, Churned, and Archived statuses with the transitions between them"
+                    caption="The driver's lifecycle in the service"
+                  />
+                )}
+                {section.id === 'rebuilding-the-product' && paragraphIndex === 0 && (
+                  <PhotoStack
+                    photos={[
+                      { src: '/images/details/field-research-1.png', alt: 'Yango-branded car in the field during research', orientation: 'portrait' },
+                      { src: '/images/details/field-research-2.png', alt: 'Presenting onboarding materials to a classroom of partners', orientation: 'landscape' },
+                      { src: '/images/details/field-research-3.png', alt: 'Whiteboard sketch of the CRM and driver journey', orientation: 'landscape' },
+                      { src: '/images/details/field-research-4.png', alt: 'Reviewing research notes with a local partner', orientation: 'landscape' },
+                      { src: '/images/details/field-research-5.png', alt: 'Walking a partner through a dashboard on screen', orientation: 'portrait' },
+                      { src: '/images/details/field-research-6.png', alt: 'Devices and interview printouts laid out on a desk', orientation: 'portrait' },
+                      { src: '/images/details/field-research-7.png', alt: 'Reviewing a spreadsheet together with a partner', orientation: 'landscape' },
+                    ]}
+                    caption="Photos from field research in Angola, Namibia and Zambia"
                   />
                 )}
               </>
