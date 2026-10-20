@@ -9,7 +9,7 @@ interface Props {
 const { src, alt, caption, class: className } = Astro.props;
 ---
 
-<figure class:list={['inline-image', className]} data-reveal-image>
+<figure class:list={['inline-image', className]} data-reveal-item>
   <div class="inline-image__inner">
     <img class="inline-image__img" src={src} alt={alt} loading="lazy" />
     {caption && <figcaption class="inline-image__caption">{caption}</figcaption>}
