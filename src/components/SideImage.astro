@@ -1,0 +1,24 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  side: 'left' | 'right';
+  caption?: string;
+}
+
+const { src, alt, side, caption } = Astro.props;
+---
+
+<figure class={`side-image side-image--${side}`} data-reveal-image>
+  <button
+    type="button"
+    class="side-image__trigger"
+    data-lightbox-trigger
+    data-lightbox-src={src}
+    data-lightbox-alt={alt}
+    aria-label={`Open full size: ${alt}`}
+  >
+    <img src={src} alt={alt} loading="lazy" />
+  </button>
+  {caption && <figcaption class="side-image__caption">{caption}</figcaption>}
+</figure>

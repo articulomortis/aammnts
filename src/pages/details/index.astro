@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import InlineImage from '../../components/InlineImage.astro';
 import { detailsIntro, detailsSections, site } from '../../content/site';
 ---
 
@@ -21,10 +22,28 @@ import { detailsIntro, detailsSections, site } from '../../content/site';
                 {section.title}
               </h2>
             ) : null}
-            {section.paragraphs.map((paragraph) => (
-              <p class="details-section__paragraph" data-reveal-item>
-                {paragraph}
-              </p>
+            {section.paragraphs.map((paragraph, paragraphIndex) => (
+              <>
+                <p class="details-section__paragraph" data-reveal-item>
+                  {paragraph}
+                </p>
+                {section.id === 'about-the-project' && paragraphIndex === 0 && (
+                  <InlineImage
+                    class="inline-image--pad-right"
+                    src="/images/details/fleet-product-map.svg"
+                    alt="Fleet product map: navigation tree with Home, Drivers, Vehicles, Reports, Map, Products and services, Information, Settings"
+                    caption="Fleet product map, 2019. Each branch had grown almost independently over time"
+                  />
+                )}
+                {section.id === 'about-the-project' && paragraphIndex === 1 && (
+                  <InlineImage
+                    class="inline-image--small"
+                    src="/images/details/raw-tables.svg"
+                    alt="Raw table view representing the product's single layer of interpretation"
+                    caption="The product offered only one layer of interpretation — raw tables"
+                  />
+                )}
+              </>
             ))}
           </section>
         ))

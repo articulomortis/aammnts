@@ -1,6 +1,9 @@
 import { initMotion, destroyMotion } from '../scripts/motion';
+import { initLightbox } from '../scripts/lightbox';
 
 let cleanup: (() => void) | undefined;
+
+initLightbox();
 
 function resetHeaderLayout() {
   const header = document.querySelector<HTMLElement>('.site-header');

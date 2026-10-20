@@ -391,6 +391,266 @@ a {
   will-change: transform, opacity, filter;
 }
 
+/* Side images on /details — float beside the text column, wabi-style */
+.details-section {
+  position: relative;
+}
+
+.side-image {
+  position: absolute;
+  top: 0.2em;
+  width: 160px;
+  margin: 0;
+  will-change: transform, opacity, filter;
+}
+
+.side-image--left {
+  right: calc(100% + 56px);
+}
+
+.side-image--right {
+  left: calc(100% + 56px);
+}
+
+.side-image__trigger {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.side-image__trigger img {
+  width: 100%;
+  border-radius: 4px;
+  display: block;
+}
+
+.side-image__caption {
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--color-text-secondary);
+  pointer-events: none;
+}
+
+/* Hide side images once the rails no longer fit next to the text column */
+@container page (max-width: 980px) {
+  .side-image {
+    display: none;
+  }
+}
+
+/* Inline image, same width as the text column */
+.inline-image {
+  margin-block: var(--container-gap);
+  margin-inline: 0;
+  will-change: transform, opacity, filter;
+}
+
+.inline-image__inner {
+  width: 100%;
+  margin-inline: auto;
+}
+
+.inline-image--pad-right .inline-image__inner {
+  padding-right: 20px;
+}
+
+.inline-image--small {
+  width: 46.667%;
+  margin-inline: auto;
+}
+
+/* Caption stays readable at full column width even though the image is narrower */
+.inline-image--small .inline-image__caption {
+  position: relative;
+  left: 50%;
+  width: calc(100% / 0.46667);
+  transform: translateX(-50%);
+}
+
+.inline-image__img {
+  width: 100%;
+  border-radius: 6px;
+  display: block;
+}
+
+.inline-image__caption {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 720px) {
+  .inline-image {
+    margin-block: var(--line-height-body);
+  }
+}
+
+/* Layer stack — scattered layers that assemble into one on scroll */
+.layer-stack {
+  width: 50%;
+  margin-block: var(--container-gap);
+  margin-inline: auto;
+}
+
+.layer-stack__inner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 700 / 410;
+}
+
+.layer-stack__layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  will-change: transform;
+}
+
+.layer-stack__caption {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 720px) {
+  .layer-stack {
+    margin-block: var(--line-height-body);
+  }
+}
+
+/* Interactive product map diagram */
+.product-map {
+  width: 100%;
+}
+
+.product-map__svg {
+  display: block;
+  width: 100%;
+  overflow: visible;
+}
+
+.product-map__edge {
+  fill: none;
+  stroke: var(--color-text-secondary);
+  stroke-width: 1;
+  opacity: 0.6;
+}
+
+.product-map__pill {
+  fill: var(--color-bg);
+  stroke: var(--color-text);
+  stroke-width: 1;
+}
+
+.product-map__label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  fill: var(--color-text-secondary);
+  user-select: none;
+}
+
+.product-map__label--root {
+  font-size: 13px;
+  font-weight: 600;
+  fill: var(--color-text);
+}
+
+.product-map__label--leaf {
+  font-size: 10px;
+  fill: var(--color-text-secondary);
+}
+
+.product-map__label-bg {
+  fill: var(--color-bg);
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  background: color-mix(in srgb, #000 82%, transparent);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--duration-medium) var(--ease-out-expo),
+    visibility var(--duration-medium) var(--ease-out-expo);
+}
+
+.lightbox--active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox__figure {
+  margin: 0;
+  max-width: 100%;
+  max-height: 100%;
+  transform: scale(0.96);
+  transition: transform var(--duration-medium) var(--ease-out-expo);
+}
+
+.lightbox--active .lightbox__figure {
+  transform: scale(1);
+}
+
+.lightbox__img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(100vh - 96px);
+  width: auto;
+  height: auto;
+  border-radius: 4px;
+  object-fit: contain;
+}
+
+.lightbox__close {
+  position: fixed;
+  top: 32px;
+  right: 32px;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: color-mix(in srgb, #000 45%, transparent);
+  cursor: pointer;
+  transition: opacity var(--duration-fast) var(--ease-out-expo);
+}
+
+.lightbox__close:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 640px) {
+  .lightbox {
+    padding: 24px;
+  }
+
+  .lightbox__close {
+    top: 16px;
+    right: 16px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

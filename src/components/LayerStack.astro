@@ -1,0 +1,28 @@
+---
+interface Layer {
+  src: string;
+  alt: string;
+}
+
+interface Props {
+  layers: Layer[];
+  caption?: string;
+}
+
+const { layers, caption } = Astro.props;
+---
+
+<figure class="layer-stack" data-reveal-layer-stack>
+  <div class="layer-stack__inner">
+    {layers.map((layer, index) => (
+      <img
+        class="layer-stack__layer"
+        data-layer-index={index}
+        src={layer.src}
+        alt={layer.alt}
+        loading="lazy"
+      />
+    ))}
+  </div>
+  {caption && <figcaption class="layer-stack__caption">{caption}</figcaption>}
+</figure>
