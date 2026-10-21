@@ -213,27 +213,8 @@ a {
   z-index: 20;
   isolation: isolate;
   overflow: visible;
-  background: var(--color-bg);
   container-type: inline-size;
   container-name: site-header;
-}
-
-.site-header::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  height: 24px;
-  z-index: 0;
-  pointer-events: none;
-  background: linear-gradient(to bottom, var(--color-bg), transparent);
-  opacity: 0;
-  transition: opacity 0.24s ease;
-}
-
-.site-header:has(.page-fade--top.is-over-media)::after {
-  opacity: 1;
 }
 
 .page-fade {
@@ -242,11 +223,12 @@ a {
 }
 
 .page-fade--top {
-  position: absolute;
-  top: 100%;
+  position: fixed;
+  top: 0;
   left: 0;
   right: 0;
-  z-index: 0;
+  width: 100%;
+  z-index: 19;
   background: var(--page-fade-gradient-top);
   opacity: 1;
   transition: opacity 0.24s ease;
@@ -257,9 +239,6 @@ a {
     --page-fade-height: 88px;
   }
 
-  .page-fade--top {
-    background: var(--page-fade-gradient-top);
-  }
 }
 
 .page-fade--bottom {
@@ -268,7 +247,7 @@ a {
   left: 0;
   right: 0;
   width: 100%;
-  z-index: 20;
+  z-index: 19;
   background: var(--page-fade-gradient-bottom);
   opacity: 1;
   transition: opacity 0.24s ease;
@@ -305,6 +284,7 @@ a {
 @container site-header (max-width: 720px) {
   .site-header__inner {
     row-gap: 8px;
+    padding-block: 16px;
   }
 
   .site-header__identity-wrap {
