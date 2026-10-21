@@ -214,6 +214,10 @@ a {
   z-index: 20;
   isolation: isolate;
   overflow: visible;
+  /* The adaptive fade may disappear over a screenshot, but the actual
+     header must always remain opaque so page text never runs underneath
+     the identity and navigation. */
+  background: var(--color-bg);
   container-type: inline-size;
   container-name: site-header;
 }
@@ -240,6 +244,9 @@ a {
   }
 
   .page-fade--top {
+    /* The stacked mobile header is taller than the bottom browser-edge
+       fade, so give its soft tail enough room below the opaque header. */
+    height: 176px;
     background: var(--page-fade-gradient-top);
   }
 }
@@ -540,6 +547,7 @@ a {
   width: calc(100% / 0.72);
   transform: translateX(-50%);
   margin-top: 24px;
+  text-wrap: balance;
 }
 
 @media (max-width: 720px) {
@@ -666,7 +674,7 @@ a {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  white-space: pre-line;
+  text-wrap: balance;
   opacity: 0;
   z-index: 0;
   transition: opacity 0.26s cubic-bezier(0.4, 0, 0.2, 1);
