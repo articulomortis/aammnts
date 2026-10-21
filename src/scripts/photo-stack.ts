@@ -64,6 +64,18 @@ function setupStack(stage: HTMLElement) {
   const items = Array.from(stage.querySelectorAll<HTMLElement>('[data-stack-index]'));
   if (items.length < 2) return () => {};
 
+  // Mobile WebKit can render an animated blurred layer as a solid black
+  // rectangle when it sits inside a transformed, clipped stack item.
+  // Keep the physical shuffle animation there, but use opacity instead of
+  // blur so Safari never creates that problematic compositor layer.
+  const isAppleMobileWebKit =
+    /WebKit/i.test(navigator.userAgent) &&
+    (/iP(?:hone|ad|od)/i.test(navigator.userAgent) ||
+      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) &&
+    window.matchMedia('(max-width: 720px)').matches;
+  stage.classList.toggle('is-mobile-webkit', isAppleMobileWebKit);
+  const filterFor = (blur: number) => (isAppleMobileWebKit ? 'none' : `blur(${blur}px)`);
+
   // Transform (position/rotation/scale) animates on the wrapper `item`;
   // filter/opacity animate on the inner `photo` <img>. Keeping them on
   // separate elements avoids a WebKit/mobile bug where animating
@@ -87,7 +99,7 @@ function setupStack(stage: HTMLElement) {
     });
     gsap.set(photo, {
       opacity: offset.opacity,
-      filter: `blur(${offset.blur}px)`,
+      filter: filterFor(offset.blur),
     });
   });
 
@@ -113,7 +125,7 @@ function setupStack(stage: HTMLElement) {
     });
     gsap.to(frontPhoto, {
       opacity: backOffset.opacity,
-      filter: `blur(${backOffset.blur + 1}px)`,
+      filter: filterFor(backOffset.blur + 1),
       duration: SHUFFLE_DURATION,
       ease: 'power2.inOut',
     });
@@ -133,7 +145,7 @@ function setupStack(stage: HTMLElement) {
       });
       gsap.to(photo, {
         opacity: offset.opacity,
-        filter: `blur(${offset.blur}px)`,
+        filter: filterFor(offset.blur),
         duration: SHUFFLE_DURATION,
         ease: 'power2.inOut',
       });
@@ -152,6 +164,7 @@ function setupStack(stage: HTMLElement) {
     stage.removeEventListener('click', shuffle);
     gsap.killTweensOf(items);
     gsap.killTweensOf(items.map(photoFor));
+    stage.classList.remove('is-mobile-webkit');
   };
 }
 

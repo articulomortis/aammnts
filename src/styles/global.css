@@ -37,15 +37,12 @@
   --page-fade-gradient-top: linear-gradient(
     to bottom,
     var(--color-bg) 0%,
-    var(--color-bg) 12%,
-    color-mix(in srgb, var(--color-bg) 98%, transparent) 24%,
-    color-mix(in srgb, var(--color-bg) 91%, transparent) 37%,
-    color-mix(in srgb, var(--color-bg) 77%, transparent) 50%,
-    color-mix(in srgb, var(--color-bg) 58%, transparent) 63%,
-    color-mix(in srgb, var(--color-bg) 39%, transparent) 74%,
-    color-mix(in srgb, var(--color-bg) 23%, transparent) 83%,
-    color-mix(in srgb, var(--color-bg) 11%, transparent) 91%,
-    color-mix(in srgb, var(--color-bg) 4%, transparent) 97%,
+    var(--color-bg) 62%,
+    color-mix(in srgb, var(--color-bg) 96%, transparent) 69%,
+    color-mix(in srgb, var(--color-bg) 78%, transparent) 77%,
+    color-mix(in srgb, var(--color-bg) 54%, transparent) 85%,
+    color-mix(in srgb, var(--color-bg) 30%, transparent) 92%,
+    color-mix(in srgb, var(--color-bg) 10%, transparent) 97%,
     transparent 100%
   );
   --page-fade-gradient-bottom: linear-gradient(
@@ -214,10 +211,6 @@ a {
   z-index: 20;
   isolation: isolate;
   overflow: visible;
-  /* The adaptive fade may disappear over a screenshot, but the actual
-     header must always remain opaque so page text never runs underneath
-     the identity and navigation. */
-  background: var(--color-bg);
   container-type: inline-size;
   container-name: site-header;
 }
@@ -263,7 +256,6 @@ a {
   transition: opacity 0.24s ease;
 }
 
-.page-fade--top.is-over-media,
 .page-fade--bottom.is-over-media {
   opacity: 0;
 }
@@ -752,6 +744,16 @@ a {
   display: block;
   will-change: filter, opacity;
   backface-visibility: hidden;
+}
+
+.photo-stack__stage.is-mobile-webkit .photo-stack__item {
+  overflow: visible;
+  backface-visibility: visible;
+}
+
+.photo-stack__stage.is-mobile-webkit .photo-stack__photo {
+  will-change: opacity;
+  backface-visibility: visible;
 }
 
 .photo-stack__caption {
