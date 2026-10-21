@@ -37,12 +37,14 @@
   --page-fade-gradient-top: linear-gradient(
     to bottom,
     var(--color-bg) 0%,
-    var(--color-bg) 62%,
-    color-mix(in srgb, var(--color-bg) 96%, transparent) 69%,
-    color-mix(in srgb, var(--color-bg) 78%, transparent) 77%,
-    color-mix(in srgb, var(--color-bg) 54%, transparent) 85%,
-    color-mix(in srgb, var(--color-bg) 30%, transparent) 92%,
-    color-mix(in srgb, var(--color-bg) 10%, transparent) 97%,
+    color-mix(in srgb, var(--color-bg) 98%, transparent) 16%,
+    color-mix(in srgb, var(--color-bg) 91%, transparent) 30%,
+    color-mix(in srgb, var(--color-bg) 77%, transparent) 44%,
+    color-mix(in srgb, var(--color-bg) 58%, transparent) 58%,
+    color-mix(in srgb, var(--color-bg) 39%, transparent) 70%,
+    color-mix(in srgb, var(--color-bg) 23%, transparent) 81%,
+    color-mix(in srgb, var(--color-bg) 11%, transparent) 90%,
+    color-mix(in srgb, var(--color-bg) 4%, transparent) 97%,
     transparent 100%
   );
   --page-fade-gradient-bottom: linear-gradient(
@@ -211,6 +213,7 @@ a {
   z-index: 20;
   isolation: isolate;
   overflow: visible;
+  background: var(--color-bg);
   container-type: inline-size;
   container-name: site-header;
 }
@@ -222,7 +225,7 @@ a {
 
 .page-fade--top {
   position: absolute;
-  top: 0;
+  top: 100%;
   left: 0;
   right: 0;
   z-index: 0;
@@ -237,9 +240,6 @@ a {
   }
 
   .page-fade--top {
-    /* The stacked mobile header is taller than the bottom browser-edge
-       fade, so give its soft tail enough room below the opaque header. */
-    height: 176px;
     background: var(--page-fade-gradient-top);
   }
 }
