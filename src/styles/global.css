@@ -23,24 +23,42 @@
   --container-gap: 100px;
   --section-gap: 48px;
   --header-gutter: 24px;
-  --header-gutter-mobile: 12px;
+  --header-gutter-mobile: var(--content-gutter);
+  /* Vertical gap around image blocks (inline images, photo stacks,
+     before/after comparisons) on mobile. Desktop uses --container-gap
+     (100px); scaling that down to the plain paragraph line-height (24px)
+     made images blend into the surrounding text instead of reading as
+     a distinct block, so this keeps a smaller but still proportionally
+     generous gap. */
+  --image-gap-mobile: 56px;
   --header-inner-gap: 32px;
   --header-stack-breakpoint: 720px;
-  --page-fade-height: 200px;
+  --page-fade-height: 112px;
   --page-fade-gradient-top: linear-gradient(
     to bottom,
     var(--color-bg) 0%,
-    color-mix(in srgb, var(--color-bg) 92%, transparent) 22%,
-    color-mix(in srgb, var(--color-bg) 68%, transparent) 48%,
-    color-mix(in srgb, var(--color-bg) 32%, transparent) 72%,
+    var(--color-bg) 12%,
+    color-mix(in srgb, var(--color-bg) 98%, transparent) 24%,
+    color-mix(in srgb, var(--color-bg) 91%, transparent) 37%,
+    color-mix(in srgb, var(--color-bg) 77%, transparent) 50%,
+    color-mix(in srgb, var(--color-bg) 58%, transparent) 63%,
+    color-mix(in srgb, var(--color-bg) 39%, transparent) 74%,
+    color-mix(in srgb, var(--color-bg) 23%, transparent) 83%,
+    color-mix(in srgb, var(--color-bg) 11%, transparent) 91%,
+    color-mix(in srgb, var(--color-bg) 4%, transparent) 97%,
     transparent 100%
   );
   --page-fade-gradient-bottom: linear-gradient(
     to top,
     var(--color-bg) 0%,
-    color-mix(in srgb, var(--color-bg) 92%, transparent) 22%,
-    color-mix(in srgb, var(--color-bg) 68%, transparent) 48%,
-    color-mix(in srgb, var(--color-bg) 32%, transparent) 72%,
+    color-mix(in srgb, var(--color-bg) 98%, transparent) 16%,
+    color-mix(in srgb, var(--color-bg) 91%, transparent) 30%,
+    color-mix(in srgb, var(--color-bg) 77%, transparent) 44%,
+    color-mix(in srgb, var(--color-bg) 58%, transparent) 58%,
+    color-mix(in srgb, var(--color-bg) 39%, transparent) 70%,
+    color-mix(in srgb, var(--color-bg) 23%, transparent) 81%,
+    color-mix(in srgb, var(--color-bg) 11%, transparent) 90%,
+    color-mix(in srgb, var(--color-bg) 4%, transparent) 97%,
     transparent 100%
   );
   --page-main-offset-mobile: 200px;
@@ -212,19 +230,17 @@ a {
   right: 0;
   z-index: 0;
   background: var(--page-fade-gradient-top);
+  opacity: 1;
+  transition: opacity 0.24s ease;
 }
 
 @media (max-width: 720px) {
+  :root {
+    --page-fade-height: 88px;
+  }
+
   .page-fade--top {
-    background: linear-gradient(
-      to bottom,
-      var(--color-bg) 0%,
-      var(--color-bg) 14%,
-      color-mix(in srgb, var(--color-bg) 96%, transparent) 30%,
-      color-mix(in srgb, var(--color-bg) 84%, transparent) 50%,
-      color-mix(in srgb, var(--color-bg) 58%, transparent) 70%,
-      transparent 100%
-    );
+    background: var(--page-fade-gradient-top);
   }
 }
 
@@ -236,6 +252,13 @@ a {
   width: 100%;
   z-index: 20;
   background: var(--page-fade-gradient-bottom);
+  opacity: 1;
+  transition: opacity 0.24s ease;
+}
+
+.page-fade--top.is-over-media,
+.page-fade--bottom.is-over-media {
+  opacity: 0;
 }
 
 .site-header__inner {
@@ -477,6 +500,7 @@ a {
   left: 50%;
   width: calc(100% / 0.46667);
   transform: translateX(-50%);
+  margin-top: 24px;
 }
 
 .inline-image__img {
@@ -495,7 +519,38 @@ a {
 
 @media (max-width: 720px) {
   .inline-image {
-    margin-block: var(--line-height-body);
+    margin-block: var(--image-gap-mobile);
+  }
+}
+
+/* Static image at the same 72% width as the compare-image stage.
+   Keep the source aspect ratio intact — screenshots must never be cropped. */
+.inline-image--compare {
+  width: 72%;
+  margin-inline: auto;
+}
+
+.inline-image--compare .inline-image__img {
+  background: var(--color-bg);
+}
+
+.inline-image--compare .inline-image__caption {
+  position: relative;
+  left: 50%;
+  width: calc(100% / 0.72);
+  transform: translateX(-50%);
+  margin-top: 24px;
+}
+
+@media (max-width: 720px) {
+  .inline-image--compare {
+    width: 100%;
+  }
+
+  .inline-image--compare .inline-image__caption {
+    width: 100%;
+    left: 0;
+    transform: none;
   }
 }
 
@@ -531,7 +586,110 @@ a {
 
 @media (max-width: 720px) {
   .layer-stack {
-    margin-block: var(--line-height-body);
+    margin-block: var(--image-gap-mobile);
+  }
+}
+
+/* Compare image — click-to-flip before/after screenshot comparison.
+   Narrower than the text column (30% margin either side) with a caption
+   area reserved for two lines so switching frames never shifts layout. */
+.compare-image {
+  width: 72%;
+  margin-inline: auto;
+  margin-block: var(--container-gap);
+}
+
+.compare-image__stage {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  padding: 0;
+  border: none;
+  background: var(--color-bg);
+  cursor: pointer;
+  border-radius: 6px;
+  overflow: hidden;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.compare-image__stage:focus-visible {
+  outline: 1px solid color-mix(in srgb, var(--color-text) 28%, transparent);
+  outline-offset: 4px;
+}
+
+.compare-image__frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top;
+  display: block;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 0.52s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.compare-image__frame.is-active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.compare-image__frame.is-entering {
+  opacity: 1;
+  z-index: 2;
+}
+
+.compare-image__caption {
+  position: relative;
+  left: 50%;
+  width: calc(100% / 0.72);
+  transform: translateX(-50%);
+  margin-top: 24px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  /* Reserve space for two lines so a 1-line and 2-line caption never
+     cause a layout jump when the frame (and its caption) is swapped. */
+  min-height: calc(1.4em * 2);
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--color-text-secondary);
+}
+
+.compare-image__caption-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  white-space: pre-line;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 0.26s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.compare-image__caption-text.is-active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.compare-image__caption-text.is-entering {
+  opacity: 1;
+  z-index: 2;
+}
+
+@media (max-width: 720px) {
+  .compare-image {
+    width: 100%;
+    margin-block: var(--image-gap-mobile);
+  }
+
+  .compare-image__caption {
+    width: 100%;
   }
 }
 
@@ -556,17 +714,36 @@ a {
   cursor: pointer;
 }
 
-.photo-stack__photo {
+/* Transform (position/rotation/scale) lives on this wrapper, and
+   filter/opacity live on the inner <img> (below). Splitting the two onto
+   separate layers avoids a WebKit/mobile rendering bug where animating
+   `filter: blur()` together with `transform` on the same element produces
+   a dark/black compositing artifact at the element's edges. */
+.photo-stack__item {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  display: block;
-  will-change: transform, filter;
+  /* Clip the blurred photo at its own box edges. Without this, blurring
+     the photo's semi-transparent baked-in edge/shadow pixels smears a
+     dark haze well past the card's visible bounds, reading as a stray
+     dark blob/square floating next to the stack. */
+  overflow: hidden;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
   user-select: none;
   pointer-events: none;
+}
+
+.photo-stack__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  will-change: filter, opacity;
+  backface-visibility: hidden;
 }
 
 .photo-stack__caption {
@@ -583,7 +760,7 @@ a {
 
 @media (max-width: 720px) {
   .photo-stack {
-    margin-block: var(--line-height-body);
+    margin-block: var(--image-gap-mobile);
   }
 
   .photo-stack__caption {

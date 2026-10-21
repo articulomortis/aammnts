@@ -1,0 +1,32 @@
+---
+interface Frame {
+  src: string;
+  alt: string;
+  caption: string;
+}
+
+interface Props {
+  before: Frame;
+  after: Frame;
+  hint?: string;
+}
+
+const { before, after, hint = 'Click to compare' } = Astro.props;
+---
+
+<figure class="compare-image" data-reveal-item>
+  <button type="button" class="compare-image__stage" data-compare-image aria-label={hint}>
+    <img
+      class="compare-image__frame is-active"
+      data-compare-frame="0"
+      src={before.src}
+      alt={before.alt}
+      loading="lazy"
+    />
+    <img class="compare-image__frame" data-compare-frame="1" src={after.src} alt={after.alt} loading="lazy" />
+  </button>
+  <figcaption class="compare-image__caption">
+    <span class="compare-image__caption-text is-active" data-compare-caption="0">{before.caption}</span>
+    <span class="compare-image__caption-text" data-compare-caption="1">{after.caption}</span>
+  </figcaption>
+</figure>

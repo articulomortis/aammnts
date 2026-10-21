@@ -1,9 +1,13 @@
 import { initMotion, destroyMotion } from '../scripts/motion';
 import { initLightbox } from '../scripts/lightbox';
 import { initPhotoStacks } from '../scripts/photo-stack';
+import { initCompareImages } from '../scripts/compare-image';
+import { initMediaAwarePageFades } from '../scripts/page-fade';
 
 let cleanup: (() => void) | undefined;
 let photoStackCleanup: (() => void) | undefined;
+let compareImageCleanup: (() => void) | undefined;
+let pageFadeCleanup: (() => void) | undefined;
 
 initLightbox();
 
@@ -26,9 +30,13 @@ function resetHeaderLayout() {
 function boot() {
   cleanup?.();
   photoStackCleanup?.();
+  compareImageCleanup?.();
+  pageFadeCleanup?.();
   resetHeaderLayout();
   cleanup = initMotion();
   photoStackCleanup = initPhotoStacks();
+  compareImageCleanup = initCompareImages();
+  pageFadeCleanup = initMediaAwarePageFades();
 }
 
 boot();
@@ -40,4 +48,8 @@ document.addEventListener('astro:before-swap', () => {
   cleanup = undefined;
   photoStackCleanup?.();
   photoStackCleanup = undefined;
+  compareImageCleanup?.();
+  compareImageCleanup = undefined;
+  pageFadeCleanup?.();
+  pageFadeCleanup = undefined;
 });

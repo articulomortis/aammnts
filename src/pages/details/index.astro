@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import InlineImage from '../../components/InlineImage.astro';
 import PhotoStack from '../../components/PhotoStack.astro';
+import CompareImage from '../../components/CompareImage.astro';
 import { detailsIntro, detailsSections, site } from '../../content/site';
 ---
 
@@ -48,6 +49,42 @@ import { detailsIntro, detailsSections, site } from '../../content/site';
                     src="/images/details/driver-lifecycle.svg"
                     alt="Driver lifecycle diagram: Candidate, Active, Churned, and Archived statuses with the transitions between them"
                     caption="The driver's lifecycle in the service"
+                  />
+                )}
+                {section.id === 'rebuilding-the-product' && paragraphIndex === 5 && (
+                  <CompareImage
+                    before={{
+                      src: '/images/details/drivers-old.png',
+                      alt: 'The old Drivers page: an endless raw data table with countless filters',
+                      caption: 'An endless table with raw data. Partners had to interpret problems on their own',
+                    }}
+                    after={{
+                      src: '/images/details/drivers-new.png',
+                      alt: 'The new Drivers page: lifecycle statuses and warning indicators surfaced at the top',
+                      caption: 'We added the driver lifecycle and made problems visible, helping partners act earlier.\nThis had an immediate effect on supply hours',
+                    }}
+                  />
+                )}
+                {section.id === 'what-we-built-next' && paragraphIndex === 1 && (
+                  <CompareImage
+                    before={{
+                      src: '/images/details/vehicles-overview.png',
+                      alt: 'Vehicles dashboard: aggregated insights into fleet performance',
+                      caption: 'A new layer of aggregated insights helped partners understand fleet performance at a glance',
+                    }}
+                    after={{
+                      src: '/images/details/vehicles-expenses.png',
+                      alt: 'Vehicle expenses view: rental status, repairs, and operational changes in one place',
+                      caption: 'From overview to action: partners could manage vehicle expenses, rental status,\nrepairs, and operational changes in one place',
+                    }}
+                  />
+                )}
+                {section.id === 'what-we-built-next' && paragraphIndex === 2 && (
+                  <InlineImage
+                    class="inline-image--compare"
+                    src="/images/details/home-dashboard.png"
+                    alt="Home Page dashboard bringing together key signals, business health, and next actions"
+                    caption="The Home Page brought key signals, business health, and next actions into one place"
                   />
                 )}
                 {section.id === 'rebuilding-the-product' && paragraphIndex === 0 && (

@@ -21,14 +21,9 @@ const { photos, caption } = Astro.props;
     aria-label="Click to see the next photo"
   >
     {photos.map((photo, index) => (
-      <img
-        class="photo-stack__photo"
-        data-stack-index={index}
-        data-orientation={photo.orientation ?? 'portrait'}
-        src={photo.src}
-        alt={photo.alt}
-        loading="lazy"
-      />
+      <div class="photo-stack__item" data-stack-index={index} data-orientation={photo.orientation ?? 'portrait'}>
+        <img class="photo-stack__photo" src={photo.src} alt={photo.alt} loading="lazy" />
+      </div>
     ))}
   </button>
   {caption && <figcaption class="photo-stack__caption">{caption}</figcaption>}
