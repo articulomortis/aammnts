@@ -2,31 +2,60 @@
 interface Frame {
   src: string;
   alt: string;
-  caption: string;
+  caption?: string;
+  previewBackground: string;
 }
 
 interface Props {
-  before: Frame;
-  after: Frame;
+  frames: readonly [Frame, Frame, ...Frame[]];
+  width: number;
+  height: number;
   hint?: string;
 }
 
-const { before, after, hint = 'Click to compare' } = Astro.props;
+const { frames, width, height, hint = 'Click to compare' } = Astro.props;
+const hasCaptions = frames.some((frame) => frame.caption);
 ---
 
-<figure class="compare-image" data-reveal-item>
-  <button type="button" class="compare-image__stage" data-compare-image aria-label={hint}>
-    <img
-      class="compare-image__frame is-active"
-      data-compare-frame="0"
-      src={before.src}
-      alt={before.alt}
-      loading="lazy"
-    />
-    <img class="compare-image__frame" data-compare-frame="1" src={after.src} alt={after.alt} loading="lazy" />
-  </button>
-  <figcaption class="compare-image__caption">
-    <span class="compare-image__caption-text is-active" data-compare-caption="0">{before.caption}</span>
-    <span class="compare-image__caption-text" data-compare-caption="1">{after.caption}</span>
-  </figcaption>
-</figure>
+<div class="compare-image" data-reveal-item>
+  <figure
+    class="compare-image__panel"
+    style={{ '--compare-image-aspect': `${width} / ${height}` }}
+  >
+    <div class="image-previews" role="group" aria-label="Screenshot previews">
+      {frames.map((frame, index) => (
+        <button
+          type="button"
+          class="image-preview"
+          style={{ '--image-preview-background': frame.previewBackground }}
+          data-compare-preview={index}
+          aria-label={frame.alt}
+          aria-pressed={index === 0 ? 'true' : 'false'}
+        >
+          <img src={frame.src} alt="" loading="lazy" />
+        </button>
+      ))}
+    </div>
+    <button type="button" class="compare-image__stage" data-compare-image aria-label={hint}>
+      {frames.map((frame, index) => (
+        <img
+          class:list={['compare-image__frame', { 'is-active': index === 0 }]}
+          data-compare-frame={index}
+          src={frame.src}
+          alt={frame.alt}
+          loading="lazy"
+        />
+      ))}
+    </button>
+    {hasCaptions && (
+      <figcaption class="compare-image__caption">
+        {frames.map((frame, index) => (
+          <span
+            class:list={['compare-image__caption-text', { 'is-active': index === 0 }]}
+            data-compare-caption={index}
+          >{frame.caption}</span>
+        ))}
+      </figcaption>
+    )}
+  </figure>
+</div>

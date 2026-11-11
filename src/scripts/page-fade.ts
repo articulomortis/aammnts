@@ -6,11 +6,7 @@
 export function initMediaAwarePageFades() {
   const topFade = document.querySelector<HTMLElement>('.page-fade--top');
   const bottomFade = document.querySelector<HTMLElement>('.page-fade--bottom');
-  const media = Array.from(
-    document.querySelectorAll<HTMLElement>(
-      '.compare-image__stage, .inline-image--compare .inline-image__img'
-    )
-  );
+  const media = Array.from(document.querySelectorAll<HTMLElement>('.compare-image__stage'));
 
   if ((!topFade && !bottomFade) || media.length === 0) return () => {};
 
