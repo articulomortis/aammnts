@@ -125,6 +125,7 @@ export const detailsSections = [
       `The same principles shaped everything we built afterwards. We introduced a layer of aggregated insights across drivers, vehicles, and finances. Instead of navigating endless tables, partners could understand the overall health of their business at a glance. Dashboards gave us a shared language for discussing key business indicators and made it easier to focus on what actually required attention.`,
       `We also introduced dedicated tools for partners who owned their own vehicle fleets, giving them visibility into rentals, expenses, and profitability.`,
       `Finally, we created the Home Page, bringing everything together into a single strategic view of the business. It highlighted opportunities, risks, and the next actions to take, allowing us to speak to partners about their business as a whole rather than through isolated pieces of data.`,
+      `As we rethought Fleet, our design system grew from individual components into reusable patterns that helped us build new products faster.`,
     ],
   },
   {

@@ -36,14 +36,6 @@ import { detailsIntro, detailsSections, site } from '../../content/site';
                     caption="Fleet product map, 2019. Each branch had grown almost independently over time"
                   />
                 )}
-                {section.id === 'about-the-project' && paragraphIndex === 1 && (
-                  <InlineImage
-                    class="inline-image--small"
-                    src="/images/details/raw-tables.svg"
-                    alt="Raw table view representing the product's single layer of interpretation"
-                    caption="The product offered only one layer of interpretation — raw tables"
-                  />
-                )}
                 {section.id === 'rebuilding-the-product' && paragraphIndex === 2 && (
                   <InlineImage
                     src="/images/details/driver-lifecycle.svg"
@@ -53,38 +45,69 @@ import { detailsIntro, detailsSections, site } from '../../content/site';
                 )}
                 {section.id === 'rebuilding-the-product' && paragraphIndex === 5 && (
                   <CompareImage
-                    before={{
-                      src: '/images/details/drivers-old.png',
-                      alt: 'The old Drivers page: an endless raw data table with countless filters',
-                      caption: 'An endless table with raw data. Partners had to interpret problems on their own',
-                    }}
-                    after={{
-                      src: '/images/details/drivers-new.png',
-                      alt: 'The new Drivers page: lifecycle statuses and warning indicators surfaced at the top',
-                      caption: 'We added the driver lifecycle and made problems visible, helping partners act earlier. This had an immediate effect on supply hours',
-                    }}
+                    width={1614}
+                    height={897}
+                    frames={[
+                      {
+                        src: '/images/details/drivers-old.png',
+                        previewBackground: '#FFFFFF',
+                        alt: 'The old Drivers page: an endless raw data table with countless filters',
+                        caption: 'An endless table with raw data. Partners had to interpret problems on their own',
+                      },
+                      {
+                        src: '/images/details/drivers-new.png',
+                        previewBackground: '#F5F4F2',
+                        alt: 'The new Drivers page: lifecycle statuses and warning indicators surfaced at the top',
+                        caption: 'We added the driver lifecycle and made problems visible, helping partners act earlier. This had an immediate effect on supply hours',
+                      },
+                    ]}
                   />
                 )}
                 {section.id === 'what-we-built-next' && paragraphIndex === 1 && (
                   <CompareImage
-                    before={{
-                      src: '/images/details/vehicles-overview.png',
-                      alt: 'Vehicles dashboard: aggregated insights into fleet performance',
-                      caption: 'A new layer of aggregated insights helped partners understand fleet performance at a glance',
-                    }}
-                    after={{
-                      src: '/images/details/vehicles-expenses.png',
-                      alt: 'Vehicle expenses view: rental status, repairs, and operational changes in one place',
-                      caption: 'From overview to action: partners could manage vehicle expenses, rental status, repairs, and operational changes in one place',
-                    }}
+                    width={1576}
+                    height={900}
+                    frames={[
+                      {
+                        src: '/images/details/vehicles-overview.png',
+                        previewBackground: '#21201F',
+                        alt: 'Vehicles dashboard: aggregated insights into fleet performance',
+                        caption: 'A new layer of aggregated insights helped partners understand fleet performance at a glance',
+                      },
+                      {
+                        src: '/images/details/vehicles-expenses.png',
+                        previewBackground: '#21201F',
+                        alt: 'Vehicle expenses view: rental status, repairs, and operational changes in one place',
+                        caption: 'From overview to action: partners could manage vehicle expenses, rental status, repairs, and operational changes in one place',
+                      },
+                    ]}
                   />
                 )}
                 {section.id === 'what-we-built-next' && paragraphIndex === 2 && (
-                  <InlineImage
-                    class="inline-image--compare"
-                    src="/images/details/home-dashboard.png"
-                    alt="Home Page dashboard bringing together key signals, business health, and next actions"
-                    caption="The Home Page brought key signals, business health, and next actions into one place"
+                  <CompareImage
+                    width={1576}
+                    height={900}
+                    hint="Show next screenshot"
+                    frames={[
+                      {
+                        src: '/images/details/home-dashboard.png',
+                        previewBackground: '#21201F',
+                        alt: 'Home Page dashboard bringing together key signals, business health, and next actions',
+                        caption: 'The Home Page brought key signals, business health, and next actions into one place',
+                      },
+                      {
+                        src: '/images/details/park-finances.png',
+                        previewBackground: '#21201F',
+                        alt: 'Park Finances dashboard with revenue, expenses, net income, and a chart over time',
+                        caption: 'Park Finances brought revenue, expenses, and net income into one overview',
+                      },
+                      {
+                        src: '/images/details/transaction-report.png',
+                        previewBackground: '#21201F',
+                        alt: 'Transaction Report with trip details and a breakdown of fares, fees, and earnings',
+                        caption: 'The Transaction Report showed how fares, fees, and bonuses contributed to each trip’s payout',
+                      },
+                    ]}
                   />
                 )}
                 {section.id === 'rebuilding-the-product' && paragraphIndex === 0 && (
@@ -103,6 +126,27 @@ import { detailsIntro, detailsSections, site } from '../../content/site';
                 )}
               </>
             ))}
+            {section.id === 'what-we-built-next' && (
+              <CompareImage
+                width={1576}
+                height={900}
+                hint="Show next design system screenshot"
+                frames={[
+                  {
+                    src: '/images/details/design-system-components.png',
+                    previewBackground: '#CFDAE1',
+                    alt: 'Fleet design system component library with controls and lists',
+                    caption: 'We started with individual components and assembled them into a library of reusable building blocks.',
+                  },
+                  {
+                    src: '/images/details/design-system-patterns.png',
+                    previewBackground: '#CFDAE1',
+                    alt: 'Fleet design system patterns for layouts, charts, tables, and forms',
+                    caption: 'We then expanded the system to include reusable patterns for entire pages.',
+                  },
+                ]}
+              />
+            )}
           </section>
         ))
       }

@@ -480,7 +480,7 @@ a {
 
 .inline-image__inner {
   width: 100%;
-  margin-inline: auto;
+  margin: 0 auto;
 }
 
 .inline-image--pad-right .inline-image__inner {
@@ -521,36 +521,73 @@ a {
   }
 }
 
-/* Static image at the same 72% width as the compare-image stage.
-   Keep the source aspect ratio intact — screenshots must never be cropped. */
-.inline-image--compare {
+.compare-image {
+  margin: 62px 0;
+}
+
+.compare-image__panel {
+  margin: 0;
+  padding-block: 90px 70px;
+  background-color: #e2e2e2;
+  border-radius: 16px;
+}
+
+.compare-image__stage,
+.image-previews {
   width: 72%;
   margin-inline: auto;
 }
 
-.inline-image--compare .inline-image__img {
-  background: var(--color-bg);
-}
-
-.inline-image--compare .inline-image__caption {
-  position: relative;
-  left: 50%;
-  width: calc(100% / 0.72);
-  transform: translateX(-50%);
-  margin-top: 24px;
+.compare-image__caption {
+  margin: var(--line-height-body) var(--content-gutter) 0;
   text-wrap: balance;
 }
 
 @media (max-width: 720px) {
-  .inline-image--compare {
-    width: 100%;
+  .compare-image__stage,
+  .image-previews {
+    width: calc(100% - var(--content-gutter) * 2);
   }
+}
 
-  .inline-image--compare .inline-image__caption {
-    width: 100%;
-    left: 0;
-    transform: none;
-  }
+.image-previews {
+  --image-preview-gap: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--image-preview-gap);
+  margin-bottom: var(--image-preview-gap);
+}
+
+.image-preview {
+  display: block;
+  width: 64.4px;
+  background-color: var(--image-preview-background, var(--color-bg));
+  border-radius: 4px;
+}
+
+.image-preview img {
+  width: 100%;
+  height: auto;
+  transform: scale(0.9);
+}
+
+button.image-preview {
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+button.image-preview img {
+  transition: opacity var(--duration-fast) var(--ease-out-expo);
+}
+
+button.image-preview[aria-pressed='false'] img {
+  opacity: 0.5;
+}
+
+button.image-preview:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
 }
 
 /* Layer stack — scattered layers that assemble into one on scroll */
@@ -589,23 +626,14 @@ a {
   }
 }
 
-/* Compare image — click-to-flip before/after screenshot comparison.
-   Narrower than the text column (30% margin either side) with a caption
-   area reserved for two lines so switching frames never shifts layout. */
-.compare-image {
-  width: 72%;
-  margin-inline: auto;
-  margin-block: var(--container-gap);
-}
-
+/* Screenshot gallery */
 .compare-image__stage {
   position: relative;
   display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: var(--compare-image-aspect);
   padding: 0;
   border: none;
-  background: var(--color-bg);
+  background: transparent;
   cursor: pointer;
   border-radius: 6px;
   overflow: hidden;
@@ -642,16 +670,9 @@ a {
 }
 
 .compare-image__caption {
-  position: relative;
-  left: 50%;
-  width: calc(100% / 0.72);
-  transform: translateX(-50%);
-  margin-top: 24px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  /* Reserve space for two lines so a 1-line and 2-line caption never
-     cause a layout jump when the frame (and its caption) is swapped. */
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  /* Both captions contribute to the height so switching frames never shifts the layout. */
   min-height: calc(1.4em * 2);
   text-align: center;
   font-size: 13px;
@@ -660,12 +681,7 @@ a {
 }
 
 .compare-image__caption-text {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  text-wrap: balance;
+  grid-area: 1 / 1;
   opacity: 0;
   z-index: 0;
   transition: opacity 0.26s cubic-bezier(0.4, 0, 0.2, 1);
@@ -679,17 +695,6 @@ a {
 .compare-image__caption-text.is-entering {
   opacity: 1;
   z-index: 2;
-}
-
-@media (max-width: 720px) {
-  .compare-image {
-    width: 100%;
-    margin-block: var(--image-gap-mobile);
-  }
-
-  .compare-image__caption {
-    width: 100%;
-  }
 }
 
 /* Photo stack — wabi-style pile of prints, click to shuffle to the next one */
